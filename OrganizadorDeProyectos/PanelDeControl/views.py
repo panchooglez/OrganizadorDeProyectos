@@ -2,13 +2,13 @@ from django.shortcuts import render, HttpResponse
 
 # Create your views here.
 def home(request):
-    return HttpResponse('Home')
+    return render(request, 'PanelDeControl/home.html')
 
 def objetivos(request):
-    return HttpResponse('Objetivos')
+    return render(request, 'PanelDeControl/objetivos.html')
 
 def despliegues(request):
-    return HttpResponse('Despliegues')
+    return render(request, 'PanelDeControl/despliegues.html')
 
 def apis(request):
-    return HttpResponse('Apis')
+    return render(request, 'PanelDeControl/apis.html')
