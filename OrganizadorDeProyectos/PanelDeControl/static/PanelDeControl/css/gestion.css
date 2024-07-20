@@ -277,3 +277,60 @@ ul.errorlist{
   font-style: italic;
   color: red;
 }
+
+/* Estiliza el contenedor del div */
+.styled-section {
+  background-color: rgba(255, 255, 255, 0.85);
+  padding: 2rem;
+  margin-top: 2rem;
+  border-radius: 0.5rem;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Estiliza el encabezado h2 */
+.styled-section .section-heading {
+  font-family: 'Raleway', sans-serif;
+  font-size: 2rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+  color: rgba(24, 64, 8, 0.8);
+}
+
+/* Estiliza la lista ul */
+.styled-list {
+  list-style-type: none;
+  padding-left: 0;
+}
+
+/* Estiliza los elementos de la lista */
+.styled-list li {
+  margin-bottom: 0.75rem;
+}
+
+/* Estiliza los labels dentro de la lista */
+.styled-list li label {
+  display: flex;
+  align-items: center;
+  font-size: 1.25rem;
+  font-family: 'Lora', serif;
+}
+
+/* Estiliza los checkboxes */
+.styled-list li input[type="checkbox"] {
+  margin-right: 1rem;
+}
+/* Clase para el div con fondo transparente */
+.transparent-div {
+  background-color: rgba(255, 255, 255, 0); /* Fondo transparente */
+  padding: 20px; /* Añadir padding si es necesario */
+}
+
+/* Clase para el párrafo con recuadro */
+.bordered-paragraph {
+  background-color: rgba(255, 255, 255, 0.85); /* Fondo blanco semi-transparente */
+  border-radius: 15px; /* Bordes redondeados */
+  padding: 15px; /* Padding interno */
+  margin: 10px 5px; /* Margen superior e inferior para separación */
+  border: 1px solid rgba(0, 0, 0, 0.1); /* Borde ligero */
+}

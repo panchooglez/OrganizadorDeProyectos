@@ -3,18 +3,21 @@
 {% load static %}
 
 {% block content %}
-<div style="background-color: rgb(37, 188, 150);">
-    <h1>Lista de Tareas</h1>
-    <ul>
-        {% for tarea in tareas %}
-        <li>
-            <label>
-                <input type="checkbox" onclick="toggleTareaCompletada({{ tarea.id }}, this)" {% if tarea.completada %}checked{% endif %}>
-                {{ tarea.descripcion }}
-            </label>
-        </li>
-        {% endfor %}
-    </ul>
+<div class="transparend-div">
+    <div class="bordered-paragraph">
+        <h1 class="section-heading">Lista de Tareas</h1>
+        <ul class="styled-list">
+            {% for tarea in tareas %}
+            <li>
+                <label>
+                    <input type="checkbox" onclick="toggleTareaCompletada({{ tarea.id }}, this)" {% if tarea.completada %}checked{% endif %}>
+                    {{ tarea.descripcion }}
+                </label>
+            </li>
+            {% endfor %}
+        </ul>
+    </div>
+    
 </div>
 {% endblock %}
 
