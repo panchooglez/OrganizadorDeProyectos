@@ -16,6 +16,9 @@
 
     <!-- Styles -->
     <link href="{% static 'PanelDeControl/css/gestion.css' %}" rel="stylesheet">
+
+    <!-- Token CSRF -->
+    <meta name="csrf-token" content="{{ csrf_token }}">
 </head>
 
 <body>
@@ -35,16 +38,16 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarResponsive">
         <ul class="navbar-nav mx-auto">
-          <li class="nav-item active px-lg-4">
+          <li class="nav-item {% if request.path == '/' %}active{% endif %} px-lg-4">
             <a class="nav-link text-uppercase text-expanded" href="{% url 'Home' %}">Inicio</a>
           </li>
-          <li class="nav-item px-lg-4">
+          <li class="nav-item {% if request.path == '/objetivos' %}active{% endif %} px-lg-4">
             <a class="nav-link text-uppercase text-expanded" href="{% url 'Objetivos' %}">Objetivos</a>
           </li>
-          <li class="nav-item px-lg-4">
+          <li class="nav-item {% if request.path == '/despliegues' %}active{% endif %} px-lg-4">
             <a class="nav-link text-uppercase text-expanded" href="{% url 'Despliegues' %}">Despliegues</a>
           </li>
-          <li class="nav-item px-lg-4">
+          <li class="nav-item {% if request.path == '/apis' %}active{% endif %} px-lg-4">
             <a class="nav-link text-uppercase text-expanded" href="{% url 'Apis' %}">Apis</a>
           </li>
          
@@ -93,6 +96,10 @@
     <!-- Bootstrap -->
     <script src="{% static 'PanelDeControl/vendor/jquery/jquery.min.js' %}"></script>
     <script src="{% static 'PanelDeControl/vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+
+    {% block scripts %}
+    <!-- Bloque para scripts específicos de la vista -->
+    {% endblock %}
 
 </body>
 
