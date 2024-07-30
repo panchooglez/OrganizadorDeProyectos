@@ -1,4 +1,4 @@
-function cambiar_despliegue(id, nuevoValor, boton, checkbox) {
+function cambiar_despliegue(id, nuevoValor, boton, checkbox, ruta_despliegue) {
     var desplegada = nuevoValor;
     var xhr = new XMLHttpRequest();
     xhr.open("POST", cambiar_despliegue_url, true);
@@ -14,18 +14,19 @@ function cambiar_despliegue(id, nuevoValor, boton, checkbox) {
             actualizarVista(id, nuevoValor, boton, checkbox);
         }
     };
+    console.log(ruta_despliegue);
 
-    xhr.send("id=" + id + "&desplegada=" + desplegada);
+    xhr.send("id=" + id + "&desplegada=" + desplegada + "&ruta_despliegue=" + ruta_despliegue);
 }
 
-function actualizarVista(id, nuevoValor, boton, checkbox) {
+function actualizarVista(id, nuevoValor, boton, checkbox, ruta_despliegue) {
     if (nuevoValor) {
         boton.textContent = 'Apagar';
-        boton.setAttribute('onclick', `cambiar_despliegue(${id}, false, this, document.querySelector('#check${id}'))`);
+        boton.setAttribute('onclick', onClickApagar);
         checkbox.checked = true;
     } else {
         boton.textContent = 'Desplegar';
-        boton.setAttribute('onclick', `cambiar_despliegue(${id}, true, this, document.querySelector('#check${id}'))`);
+        boton.setAttribute('onclick', onClickDesplegar);
         checkbox.checked = false;
     }
 }

@@ -21,12 +21,14 @@ def cambiar_despliegue(request):
         instancia.desplegada = nuevo_valor
         instancia.save()
         state = "up" if nuevo_valor else "down"
-        #f"docker compose -f {ruta_despliegue} {state} -d"
-        resultado = subprocess.run(f"docker compose -f {ruta_despliegue} {state} -d", shell=True, capture_output=True, text=True)
+        detached = "-d" if nuevo_valor else ""
+        comando = f"docker compose -f {ruta_despliegue} {state} {detached}"
+        resultado = subprocess.run(comando, shell=True, capture_output=True, text=True)
+        print('comando: ' + comando)
         print('stdout: ' + resultado.stdout)
         print('stderr: ' + resultado.stderr)
         return JsonResponse({'success': True, 'stdout': resultado.stdout, 'stderr': resultado.stderr})
-    except Despliegue.DoesNotExist:
+    except Exception:
         return JsonResponse({'success': False, 'error': 'Error en despliegue'}, status=404)
 
 #Esto intuyo que no sera una buena practica incluirlo en views

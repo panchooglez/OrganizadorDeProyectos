@@ -11,10 +11,10 @@
                   {{ despliegue.titulo }}
               </label>
               {% if despliegue.desplegada %}
-              <button onclick="cambiar_despliegue({{ despliegue.id }}, false, this, document.querySelector('#check{{ despliegue.id }}'))">Apagar</button>
+              <button onclick="cambiar_despliegue({{ despliegue.id }}, false, this, document.querySelector('#check{{ despliegue.id }}'), '{{ despliegue.ruta_despliegue }}')">Apagar</button>
               <input type="checkbox" id="check{{ despliegue.id }}" {% if despliegue.desplegada %} checked  {% endif %} disabled>
               {% else %}
-              <button onclick="cambiar_despliegue({{ despliegue.id }}, true, this, document.querySelector('#check{{ despliegue.id }}'))">Desplegar</button>
+	      <button onclick="cambiar_despliegue({{ despliegue.id }}, true, this, document.querySelector('#check{{ despliegue.id }}'), '{{ despliegue.ruta_despliegue }}')">Desplegar</button>
               <input type="checkbox" id="check{{ despliegue.id }}" {% if despliegue.desplegada %} checked  {% endif %} disabled>
               {% endif %}
           </li>
