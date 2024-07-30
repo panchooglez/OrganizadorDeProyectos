@@ -333,4 +333,37 @@ ul.errorlist{
   padding: 15px; /* Padding interno */
   margin: 10px 5px; /* Margen superior e inferior para separación */
   border: 1px solid rgba(0, 0, 0, 0.1); /* Borde ligero */
+  display: flex;
+}
+
+.styled-list button {
+  display: flex;
+  align-items: center;
+  margin-left: 10px;
+  border-radius: 10px;
+  background-color: grey;
+}
+
+.styled-list button:hover{
+  background-color: lightgray;
+}
+
+.styled-list input[type="checkbox"] {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  width: 30px;
+  height: 30px;
+  border: 2px solid green;
+  border-radius: 6px;
+  display: inline-block;
+  position: relative;
+  cursor: not-allowed;
+  background-color: white;
+  transition: background-color 0.3s ease;
+  margin-left: 20px; /* Más margen a la izquierda */
+}
+
+.styled-list input[type="checkbox"]:checked {
+  background-color: green;
 }

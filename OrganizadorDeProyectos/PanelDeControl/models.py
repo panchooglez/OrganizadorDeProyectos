@@ -11,3 +11,15 @@ class Tarea(models.Model):
 
     def __str__(self):
         return self.descripcion
+    
+class Despliegue(models.Model):
+    titulo = models.CharField(max_length=100, default="")
+    desplegada = models.BooleanField(default=False)
+    ruta_despliegue = models.CharField(max_length=100, default="")
+
+    class Meta:
+        verbose_name = 'despliegue'
+        verbose_name_plural = 'despliegues'
+
+    def __str__(self):
+        return self.titulo

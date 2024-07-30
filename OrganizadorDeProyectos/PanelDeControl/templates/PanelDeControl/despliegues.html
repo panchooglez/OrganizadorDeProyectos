@@ -4,9 +4,30 @@
 
 {% block content %}
       <div class="transparent-div">
-        <p class="bordered-paragraph">
-          Esta será la sección que nos permitirá decidir que servicios se despliegan en el servidor mediante una interfaz amigable y sin necesidad de acceder al servidor por terminal ni nada.
-        </p>
+        <ul class="styled-list">
+          {% for despliegue in despliegues %}
+          <li class="bordered-paragraph">
+              <label>
+                  {{ despliegue.titulo }}
+              </label>
+              {% if despliegue.desplegada %}
+              <button onclick="cambiar_despliegue({{ despliegue.id }}, false, this, document.querySelector('#check{{ despliegue.id }}'))">Apagar</button>
+              <input type="checkbox" id="check{{ despliegue.id }}" {% if despliegue.desplegada %} checked  {% endif %} disabled>
+              {% else %}
+              <button onclick="cambiar_despliegue({{ despliegue.id }}, true, this, document.querySelector('#check{{ despliegue.id }}'))">Desplegar</button>
+              <input type="checkbox" id="check{{ despliegue.id }}" {% if despliegue.desplegada %} checked  {% endif %} disabled>
+              {% endif %}
+          </li>
+          {% endfor %}
+      </ul>
     </div>
     
+{% endblock %}
+
+{% block scripts %}
+<script>
+    const cambiar_despliegue_url = "{% url 'cambiar_despliegue' %}";
+    const csrfToken = "{{ csrf_token }}";
+</script>
+<script src="{% static 'PanelDeControl/js/cambiar_despliegue.js' %}"></script>
 {% endblock %}
